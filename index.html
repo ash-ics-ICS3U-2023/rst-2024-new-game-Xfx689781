@@ -1,3 +1,23 @@
 <html>
-
+<head>
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Welcome to Blackjack Game</h1>
+            <p>Are you ready to play?</p>
+        </header>
+        <section>
+            <button onclick="startGame()">Play</button>
+            <a href="instructions.html">Instructions</a>
+        </section>
+    </main>
+    <script>
+        function startGame() {
+            window.location.href = "game.html";
+        }
+    </script>
+</body>
 </html>
