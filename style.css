@@ -2,7 +2,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #c6ffad;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@ body {
 
 main {
     text-align: center;
-    background-color: #fff;
+    background-color: #c6ffad;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ h1, h2, p {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #595cfc;
     color: white;
     padding: 10px 20px;
     font-size: 18px;
@@ -36,7 +36,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #64e6f5;
 }
 
 a {
@@ -48,3 +48,4 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
