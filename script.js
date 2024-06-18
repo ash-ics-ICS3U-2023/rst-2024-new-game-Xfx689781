@@ -55,7 +55,7 @@ function startGame() {
     }
     console.log(dealerSum);
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 1; i < 2; i++) {
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./cards/" + card + ".png";
@@ -63,11 +63,10 @@ function startGame() {
         yourAceCount += checkAce(card);
         document.getElementById("your-cards").append(cardImg);
     }
-
     console.log(yourSum);
+
     document.getElementById("hit").addEventListener("click", hit());
     document.getElementById("stay").addEventListener("click", stay());
-
 }
 
 function hit() {
