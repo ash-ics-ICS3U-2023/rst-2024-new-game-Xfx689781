@@ -35,15 +35,15 @@ function shuffleDeck() {
         deck[i] = deck[j];
         deck[j] = temp;
     }
-    // console.log(deck);
+    console.log(deck);
 }
 
 function startGame() {
     hidden = deck.pop();
     dealerSum += getValue(hidden);
     dealerAceCount += checkAce(hidden);
-    // console.log(hidden);
-    // console.log(dealerSum);
+    console.log(hidden);
+    console.log(dealerSum);
     while (dealerSum < 17) {
         //<img src="./cards/4-C.png">
         let cardImg = document.createElement("img");
