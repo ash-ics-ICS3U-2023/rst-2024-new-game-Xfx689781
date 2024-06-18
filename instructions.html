@@ -4,6 +4,57 @@
     <title>Blackjack Game - Instructions</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        color: #343a40;
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif
+    }
+
+    header {
+        background-color: #007e71;
+        color: rgb(255, 255, 255);
+        padding: 1em;
+        text-align: center;
+    }
+
+    main {
+        max-width: 800px;
+        margin: 2em auto;
+        padding: 1em;
+        background-color: rgb(252, 252, 204);
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, p {
+        margin: 0;
+    }
+
+    section {
+        margin-top: 2em;
+    }
+
+    button, a {
+        display: inline-block;
+        margin: 0.5em;
+        padding: 0.5em 1em;
+        color: rgb(255, 255, 255);
+        background-color: rgb(4, 158, 91);
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        border: none;
+        cursor: pointer;
+       
+    }
+
+    button:hover, a:hover {
+        background-color: #a1b5ca;
+    }
+</style>
 <body>
     <main>
         <header>
@@ -20,29 +71,29 @@
             <p>Joker card: If you receive a Joker, you automatically win the round.</p>
             
             <h2>Game Play</h2>
-            <p>Initial Deal:
+            <h3>Initial Deal:</h3>
 
             Each player and the dealer are dealt two cards.
-            Players’ cards are dealt face up. The dealer has one card face up and one card face down (the hole card).
-            Player's Turn:
+         
+            <h3>Player's Turn:</h3>
             
             Players can choose to:
             Hit: Take another card.
             Stand: Keep their current hand.
             Double Down: Double the initial bet, receive exactly one more card, and then stand.
             Split: If the first two cards have the same value, split them into two separate hands (requires matching the initial bet). Each hand then plays independently.
-            Dealer's Turn:
+            <h3>Dealer's Turn:</h3> 
             
             After all players have completed their turns, the dealer reveals the hole card.
             The dealer must hit until their hand totals 17 or higher (in some casinos, a dealer must hit on a soft 17—a hand containing an Ace valued as 11).
             If the dealer busts (exceeds 21), all remaining players win.
-            Winning:
+            <h3>Winning:</h3>  
             
             If a player's hand exceeds 21, they bust and lose the bet.
             If the player’s hand is closer to 21 than the dealer's hand without busting, the player wins and receives a payout of 1:1 on their bet.
             If the player has Blackjack (an Ace and a 10-point card) and the dealer does not, the player wins 1.5 times their bet.
             If both the player and the dealer have the same hand value, it is a push, and the player's bet is returned.</p>
-            <p>Enjoy playing Jokerjack!</p>
+            
             <h2>Special Rules:</h2>
             <p>Insurance: If the dealer's face-up card is an Ace, players can take insurance (a side bet up to half the original bet) against the dealer having Blackjack. If the dealer has Blackjack, the insurance bet pays 2:1.
                 Surrender: Some games allow players to surrender their hand and lose half their bet after the initial deal.
@@ -51,6 +102,7 @@
             <p>Use basic strategy charts to determine the best action based on your hand and the dealer's upcard.
                 Manage your bankroll carefully and avoid chasing losses.
             </p>
+            <h2>Enjoy playing Jokerjack!</h2> <br>
             <a href="index.html">Back to Home</a>
         </section>
     </main>
