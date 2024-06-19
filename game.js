@@ -144,9 +144,10 @@ function startRound() {
     console.log(yourSum);
     if (yourSum == 21){
         canHit = false; //if the player's score = 21, the player cannot hit or stand, and that person wins 5 times of the money he/she paid for
+        canStand = false;
         document.getElementById("hidden").src = "./cards/" + hidden + ".png";
         let message = ""
-        balance += betAmount * 5;
+        balance += betAmount * 2.5;
         message = "Blackjack!\nBig winner 💰\nYou made: $" + betAmount * 5;
         document.getElementById("dealer-sum").innerText = dealerSum;
         document.getElementById("your-sum").innerText = yourSum;
@@ -250,7 +251,8 @@ function getValue(card) {
             return 11;
         }
         else if (value == "R" || value == "B"){
-            return 21;
+            Joker();
+            return 1;
         }
         return 10;
     }
@@ -299,6 +301,17 @@ function nextRound(){
     hiddenCard.style.display = "none";
 }
 
-function checkJoker(){
+function joker(){
+    canHit = false; //if the player's score = 21, the player cannot hit or stand, and that person wins 5 times of the money he/she paid for
+    canStand = false;
 
+    document.getElementById("hidden").src = "./cards/" + hidden + ".png";
+    let message = ""
+    balance += betAmount * 2.5;
+    message = "Joker on the board!\nBig winner 💰\nYou made: $" + betAmount * 5;
+    document.getElementById("dealer-sum").innerText = dealerSum;
+    document.getElementById("your-sum").innerText = yourSum;
+    document.getElementById("results").innerText = message;
+    document.getElementById("resetGame").addEventListener("click", nextRound);
+    updateMoneyDisplay();
 }
