@@ -71,6 +71,7 @@ function placeBet(){
     }
 
     balance -= betAmount;
+    console.log(balance);
     updateMoneyDisplay();
     startRound();
 }
