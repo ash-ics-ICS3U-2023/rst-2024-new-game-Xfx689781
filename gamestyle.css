@@ -1,29 +1,140 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    background-image: url(cards/images/image_3.jpg);
-  }
+  background-image: url("blackJackTable.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  text-align: center;
+  padding: 30px;
+}
+
+body main h2{
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 4px;
+  border-color: rgb(94, 204, 127);
+  background-color: rgb(130, 209, 143);
+  display: inline;
+  padding: 10px;
+  margin: auto;
+}
+
+#dealer-cards{
+  background-color: rgb(126, 66, 27);
+  background-clip: padding-box;
+  border-top-style: solid;
+  border-top-width: 15px;
+  border-top-color:rgba(255, 255, 255, 0);
+  border-bottom-style: solid;
+  border-bottom-width: 20px;
+  border-bottom-color:rgba(255, 255, 255, 0);
+  border-radius: 90px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: auto;
+  max-width: 80%;
+}
+
+#your-cards{
+  background-color: rgb(126, 66, 27);
+  background-clip: padding-box;
+  border-top-style: solid;
+  border-top-width: 15px;
+  border-top-color:rgba(255, 255, 255, 0);
+  border-bottom-style: solid;
+  border-bottom-width: 20px;
+  border-bottom-color:rgba(255, 255, 255, 0);
+  border-radius: 90px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: auto;
+  max-width: 80%;
+}
+
+#dealer-cards img {
+  display: inline;
+  height: 175px;
+  width: 125px;
+  margin: 1px;
+}
   
-  #dealer-cards img {
-    height: 175px;
-    width: 125px;
-    margin: 1px;
-  }
+#your-cards img {
+  display: inline;
+  height: 175px;
+  width: 125px;
+  margin: 1px;
+}
+ 
+#hit {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+}
   
-  #your-cards img {
-    height: 175px;
-    width: 125px;
-    margin: 1px;
-  }
-  
-  #hit {
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-  }
-  
-  #stay {
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-  }
+#stay {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+}
+
+#resultbox{
+  background-color: rgba(46, 99, 39, 0.425);
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  margin: auto;
+}
+
+#money p{
+  font-size: 30px;
+  background-color: rgb(75, 255, 129);
+  border-radius: 90px;
+  max-width: 60%;
+  margin: auto;
+  padding: 5px;
+}
+
+#money{
+  background-color: rgb(52, 160, 84);
+  padding: 10px;
+  margin: auto;
+  max-width: 30%;
+  border-radius: 10px;
+}
+
+#results{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(52, 160, 84);
+  padding: 20px;
+  margin: auto;
+  max-width: 30%;
+  border-radius: 10px;
+}
+
+input{
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+#resetGame{
+  font-size: 20px;
+  padding: 10px;
+  background-color: rgb(75, 255, 129);
+  margin: auto;
+}
+button {
+  border-radius: 50px;
+  font-size: 25px;
+  background-color: rgb(75, 255, 129);
+  padding: 10px;
+}

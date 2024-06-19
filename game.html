@@ -5,22 +5,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Jokerjack - Play</title>
         <link rel="stylesheet" href="gamestyle.css">
-        <script src="script.js"></script>
+        <script src="game.js"></script>
     </head>
 
     <body>
+        <main>
         <h2>Dealer: <span id="dealer-sum"></span></h2>
         <div id="dealer-cards">
-            <img id="hidden" src="./cards/BACK.png">
-        </div>
-
-        <h2>You: <span id="your-sum"></span></h2>
-        <div id="your-cards">
+            <img id="hidden" src="./cards/BACK.png" style="display: none;">
         </div>
 
         <br>
-        <button id="hit">Hit</button>
-        <button id="stay">Stay</button>
-        <p id="results"></p>
+
+        <h2>You: <span id="your-sum"></span></h2>
+        <div id="your-cards"></div>
+
+        <br>
+
+        <div id="resultbox">
+            <div id="money">
+                <p>Your Money: $<span id="balance"></span></p>
+                <br>
+                <input type="number" id="betAmount" placeholder="Enter bet amount">
+                <button id="placeBet">Place Bet</button>
+            </div>
+            <br>
+            <div id="hitandstaybuttons">
+                <button id="hit">Hit</button>
+                <button id="stay">Stand</button>
+            </div>
+            <br>
+            <p id="results"></p>
+            <br>
+            <button id="resetGame">Play Again</button>
+        </div>
+    
+        </main>
     </body>
 </html>
