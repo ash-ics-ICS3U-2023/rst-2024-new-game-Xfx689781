@@ -21,6 +21,7 @@ window.onload = function() {
     makeDeck();
     shuffleDeck();
     updateMoneyDisplay();
+    checkBalance();
     document.getElementById("placeBet").addEventListener("click", placeBet);
     document.getElementById("outOfMoney").addEventListener("click", atm);
 }
@@ -35,7 +36,6 @@ function checkBalance(){
         console.log(broke);
     }
 }
-checkBalance();
 
 function atm(){
     console.log("ATM")
@@ -277,6 +277,7 @@ function nextRound(){
 
     makeDeck();
     shuffleDeck();
+    checkBalance();
 
     document.getElementById("dealer-cards").innerHTML = '<img id="hidden" src="./cards/BACK.png" style="display: none;">';
     document.getElementById("your-cards").innerHTML = "";
