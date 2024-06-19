@@ -10,15 +10,39 @@ let deck;
 let canHit = false;
 let canStand = false;
 let canBet = true;
+let broke = false;
 
 let balance = 100;
 let betAmount = 0;
 
 window.onload = function() {
+    document.getElementById("outOfMoney").addEventListener("click", atm);
     makeDeck();
     shuffleDeck();
     updateMoneyDisplay();
+    checkBalance();
     document.getElementById("placeBet").addEventListener("click", placeBet);
+}
+
+function checkBalance(){
+    if (balance == 0){
+        broke = true;
+        document.getElementById("outOfMoney").addEventListener("click", atm);
+    }
+    else{
+        document.getElementById("outOfMoney").removeEventListener("click", atm);
+    }
+}
+
+function atm(){
+    //Get money function
+    if (broke == false){
+        return
+    }
+    balance += 10;
+    updateMoneyDisplay();
+    document.getElementById("results").innerText = "You went to the atm and withdrew $10, keep on gambling!";
+    broke = false;
 }
 
 function updateMoneyDisplay(){
@@ -53,10 +77,9 @@ function makeDeck() {
 
     for (let i = 0; i < types.length; i++) {
         for (let j = 0; j < values.length; j++) {
-            deck.push(values[j] + "-" + types[i]); //A-C -> K-C, A-D -> K-D
+            deck.push(values[j] + "-" + types[i]);
         }
     }
-    // console.log(deck);
 }
 
 function shuffleDeck() {
