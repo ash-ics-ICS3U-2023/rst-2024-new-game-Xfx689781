@@ -47,3 +47,12 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.box {
+    background-color: #3498db;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
