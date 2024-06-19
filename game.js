@@ -50,7 +50,7 @@ function updateMoneyDisplay(){
 function placeBet(){
     if (canBet == false) {
         return;
-    } // return
+    } // 
     canBet = false;
     canStand = true;
     canHit = true;
@@ -90,6 +90,7 @@ function shuffleDeck() {
     console.log(deck);
 }
 
+//the function to start the g
 function startRound() {
     // Show first face down card
     let hiddenCard = document.getElementById("hidden");
@@ -138,7 +139,7 @@ function startRound() {
 
 }
 
-//the function to control hits a
+//the function to control hits and stands
 function hit() {
     if (canHit == false) {
         return;
@@ -151,7 +152,7 @@ function hit() {
     yourAceCount += checkAce(card);
     document.getElementById("your-cards").append(displayCard);
 
-    if (reduceAce(yourSum, yourAceCount) > 21) { //when the player br
+    if (reduceAce(yourSum, yourAceCount) > 21) { //when the player burst, the player cannot hit or stand
         canHit = false;
         canStand = false;
         
@@ -163,7 +164,7 @@ function hit() {
         document.getElementById("results").innerText = message;
         document.getElementById("resetGame").addEventListener("click", nextRound);
     }
-}
+}//
 
 //the function to play the game
 function endRound() {
