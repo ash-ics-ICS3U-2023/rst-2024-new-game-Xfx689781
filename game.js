@@ -38,6 +38,7 @@ function checkBalance(){
 checkBalance();
 
 function atm(){
+    console.log("ATM")
     // Function for giving money to player when they out
     if (broke == false){ // Doesnt give money if use is not at 0$
         return
