@@ -42,6 +42,7 @@ function atm(){
     }
     //Gives player 10$, updates the money display, displays text, and resets the broke status
     balance += 10;
+    console.log(balance);
     updateMoneyDisplay();
     document.getElementById("results").innerText = "You went to the atm and withdrew $10, keep on gambling!";
     broke = false;
