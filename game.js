@@ -251,8 +251,7 @@ function getValue(card) {
             return 11;
         }
         else if (value == "R" || value == "B"){
-            Joker();
-            return 1;
+            return joker();
         }
         return 10;
     }
