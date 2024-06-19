@@ -29,9 +29,11 @@ window.onload = function() {
 function checkBalance(){
     if (balance == 0){
         broke = true;
+        console.log(broke);
     } // check if the balance is 0 and therefore applting if the being broke is true or not
     else{
         broke = false;
+        console.log(broke);
     }
 }
 
