@@ -21,7 +21,6 @@ window.onload = function() {
     makeDeck();
     shuffleDeck();
     updateMoneyDisplay();
-    checkBalance();
     document.getElementById("placeBet").addEventListener("click", placeBet);
     document.getElementById("outOfMoney").addEventListener("click", atm);
 }
@@ -36,6 +35,7 @@ function checkBalance(){
         console.log(broke);
     }
 }
+checkBalance();
 
 function atm(){
     // Function for giving money to player when they out
