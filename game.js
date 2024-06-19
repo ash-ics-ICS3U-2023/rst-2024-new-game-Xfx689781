@@ -26,31 +26,36 @@ window.onload = function() {
     document.getElementById("outOfMoney").addEventListener("click", atm);
 }
 
+//the function checks the balance
 function checkBalance(){
     if (balance == 0){
         broke = true;
-        console.log(broke);
+        //console.log(broke);
     } // check if the balance is 0 and therefore applting if the being broke is true or not
     else{
         broke = false;
-        console.log(broke);
+        //console.log(broke);
     }
 }
 
+//the atm function are activated when out of money
 function atm(){
-    console.log("ATM")
+    //console.log("ATM")
     // Function for giving money to player when they out
     if (broke == false){ // Doesnt give money if use is not at 0$
         return
     }
+    else{
     //Gives player 10$, updates the money display, displays text, and resets the broke status
     balance += 10;
     console.log(balance);
     updateMoneyDisplay();
     document.getElementById("results").innerText = "You went to the atm and withdrew $10, keep on gambling!";
     broke = false;
+    }
 }
 
+//the function update the player's money display after each game
 function updateMoneyDisplay(){
     document.getElementById("balance").innerText = balance;
 }
@@ -90,6 +95,8 @@ function placeBet(){
             deck.push(values[j] + "-" + types[i]);
         }
     }
+    deck.push('R-J', 'B-J');
+    //console.log(deck); check deck
 }
 
 //shuffle the card deck
@@ -100,7 +107,7 @@ function shuffleDeck() {
         deck[i] = deck[j];
         deck[j] = temp;
     }
-    console.log(deck);
+    //console.log(deck); check shuffle
 }
 
 //the function to start the game 
@@ -136,11 +143,11 @@ function startRound() {
     }
     console.log(yourSum);
     if (yourSum == 21){
-        canHit = false; //if the player's score = 21, the player cannot hit or stand, and that person wins 3.5 times of the money he/she paid for
+        canHit = false; //if the player's score = 21, the player cannot hit or stand, and that person wins 5 times of the money he/she paid for
         document.getElementById("hidden").src = "./cards/" + hidden + ".png";
         let message = ""
-        balance += betAmount * 3.5;
-        message = "Blackjack!\nBig winner 💰\nYou made: $" + betAmount * 3.5;
+        balance += betAmount * 5;
+        message = "Blackjack!\nBig winner 💰\nYou made: $" + betAmount * 5;
         document.getElementById("dealer-sum").innerText = dealerSum;
         document.getElementById("your-sum").innerText = yourSum;
         document.getElementById("results").innerText = message;
@@ -238,9 +245,12 @@ function getValue(card) {
     let data = card.split("-"); // "4-C" -> ["4", "C"]
     let value = data[0];
 
-    if (isNaN(value)) { //A J Q K
+    if (isNaN(value)) { // A face card or ace
         if (value == "A") {
             return 11;
+        }
+        else if (value == "R" || value == "B"){
+            return 21;
         }
         return 10;
     }
@@ -287,4 +297,8 @@ function nextRound(){
 
     let hiddenCard = document.getElementById("hidden");
     hiddenCard.style.display = "none";
+}
+
+function checkJoker(){
+
 }
