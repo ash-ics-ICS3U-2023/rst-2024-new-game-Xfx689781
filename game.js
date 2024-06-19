@@ -30,19 +30,21 @@ function checkBalance(){
     if (balance == 0){
         broke = true;
     } // check if the balance is 0 and therefore applting if the being broke is true or not
-    return
+    else{
+        broke = false;
+    }
 }
 
 function atm(){
     // Function for giving money to player when they out
-    if (broke == false){ //Dont give money if
+    if (broke == false){ // Doesnt give money if use is not at 0$
         return
     }
+    //Gives player 10$, updates the money display, displays text, and resets the broke status
     balance += 10;
     updateMoneyDisplay();
     document.getElementById("results").innerText = "You went to the atm and withdrew $10, keep on gambling!";
     broke = false;
-    console.log("balance")
 }
 
 function updateMoneyDisplay(){
