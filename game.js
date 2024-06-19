@@ -1,10 +1,10 @@
-let dealerSum = 0;
-let yourSum = 0;
+let dealerSum = 0; //define dealerSum - the dealer's score
+let yourSum = 0; //define yourSum - the player's score
 
-let dealerAceCount = 0;
-let yourAceCount = 0; 
+let dealerAceCount = 0; //define dealer's ace count
+let yourAceCount = 0; //define the player's ace count
 
-let hidden;
+let hidden; 
 let deck;
 
 let canHit = false;
@@ -15,6 +15,7 @@ let broke = false;
 let balance = 100;
 let betAmount = 0;
 
+ 
 window.onload = function() {
     document.getElementById("outOfMoney").addEventListener("click", atm);
     makeDeck();
@@ -27,11 +28,8 @@ window.onload = function() {
 function checkBalance(){
     if (balance == 0){
         broke = true;
-        document.getElementById("outOfMoney").addEventListener("click", atm);
     }
-    else{
-        document.getElementById("outOfMoney").removeEventListener("click", atm);
-    }
+    return
 }
 
 function atm(){
@@ -52,7 +50,7 @@ function updateMoneyDisplay(){
 function placeBet(){
     if (canBet == false) {
         return;
-    }
+    } // return
     canBet = false;
     canStand = true;
     canHit = true;
@@ -84,7 +82,7 @@ function makeDeck() {
 
 function shuffleDeck() {
     for (let i = 0; i < deck.length; i++) {
-        let j = Math.floor(Math.random() * deck.length); // (0-1) * 52 => (0-51.9999)
+        let j = Math.floor(Math.random() * deck.length);
         let temp = deck[i];
         deck[i] = deck[j];
         deck[j] = temp;
@@ -140,6 +138,7 @@ function startRound() {
 
 }
 
+//the function to control hits a
 function hit() {
     if (canHit == false) {
         return;
@@ -152,7 +151,7 @@ function hit() {
     yourAceCount += checkAce(card);
     document.getElementById("your-cards").append(displayCard);
 
-    if (reduceAce(yourSum, yourAceCount) > 21) {
+    if (reduceAce(yourSum, yourAceCount) > 21) { //when the player br
         canHit = false;
         canStand = false;
         
@@ -166,6 +165,7 @@ function hit() {
     }
 }
 
+//the function to play the game
 function endRound() {
     if (canStand == false){
         return
@@ -191,22 +191,22 @@ function endRound() {
     document.getElementById("hidden").src = "./cards/" + hidden + ".png";
 
     let message = "";
-    if (yourSum == dealerSum) {
+    if (yourSum == dealerSum) { //when the player's score = the dealer's score, the player's money is returned
         message = "Standoff!\nYour bet has been returned 😊";
         balance += betAmount;
     }
-    else if (yourSum > 21) {
+    else if (yourSum > 21) { //when the player's score > 21, the player loses
         message = "You busted!\nYou lose 😢"; 
     }
-    else if (dealerSum > 21) {
+    else if (dealerSum > 21) { //when the dealer's score > 21, the player wins
         balance += betAmount * 2;
         message = "The dealer busted!\nYou win 🥳\nYou made: $" + betAmount * 2;
     }
-    else if (yourSum > dealerSum) {
+    else if (yourSum > dealerSum) { //if 21 > player > dealer, the player wins
         balance += betAmount * 2;        
         message = "You have a higher hand!\nYou win 🥳\nYou made: $" + betAmount * 2;
     }
-    else if (yourSum < dealerSum) {
+    else if (yourSum < dealerSum) { //if 21 > dealer > player, the player loses
         message = "The dealer has a higher hand!\nYou lose 😢";
     }
 
@@ -218,6 +218,7 @@ function endRound() {
     document.getElementById("resetGame").addEventListener("click", nextRound);
 }
 
+//get card value - correspond the cards with their corresponding value, and the special cases are J, Q, K and A, where JQK = 10 points and A = 11 points
 function getValue(card) {
     let data = card.split("-"); // "4-C" -> ["4", "C"]
     let value = data[0];
@@ -231,6 +232,7 @@ function getValue(card) {
     return parseInt(value);
 }
 
+//check
 function checkAce(card) {
     if (card[0] == "A") {
         return 1;
@@ -238,6 +240,7 @@ function checkAce(card) {
     return 0;
 }
 
+//reduce the ace - when the player has a score value greater than 21
 function reduceAce(playerSum, playerAceCount) {
     while (playerSum > 21 && playerAceCount > 0) {
         playerSum -= 10;
@@ -246,6 +249,7 @@ function reduceAce(playerSum, playerAceCount) {
     return playerSum;
 }
 
+//entering the next round - dealer's score and the player's score get to zero and give the cards again
 function nextRound(){
     dealerSum = 0;
     yourSum = 0;
