@@ -1,4 +1,3 @@
-
 let dealerSum = 0;
 let yourSum = 0;
 
