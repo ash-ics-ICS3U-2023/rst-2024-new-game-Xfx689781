@@ -1,8 +1,9 @@
+// Define global variables for the functions to use
 let dealerSum = 0; //define dealerSum - the dealer's score
 let yourSum = 0; //define yourSum - the player's score
 
-let dealerAceCount = 0; //define dealer's ace count
-let yourAceCount = 0; //define the player's ace count
+let dealerAceCount = 0; 
+let yourAceCount = 0; 
 
 let hidden; 
 let deck;
@@ -17,36 +18,38 @@ let betAmount = 0;
 
  
 window.onload = function() {
-    document.getElementById("outOfMoney").addEventListener("click", atm);
     makeDeck();
     shuffleDeck();
     updateMoneyDisplay();
     checkBalance();
     document.getElementById("placeBet").addEventListener("click", placeBet);
+    document.getElementById("outOfMoney").addEventListener("click", atm);
 }
 
 function checkBalance(){
     if (balance == 0){
         broke = true;
-    }
+    } // check if the balance is 0 and therefore applting if the being broke is true or not
     return
 }
 
 function atm(){
-    //Get money function
-    if (broke == false){
+    // Function for giving money to player when they out
+    if (broke == false){ //Dont give money if
         return
     }
     balance += 10;
     updateMoneyDisplay();
     document.getElementById("results").innerText = "You went to the atm and withdrew $10, keep on gambling!";
     broke = false;
+    console.log("balance")
 }
 
 function updateMoneyDisplay(){
     document.getElementById("balance").innerText = balance;
 }
 
+//to bet: if the money the player has > 0, the player can bet
 function placeBet(){
     if (canBet == false) {
         return;
@@ -57,6 +60,7 @@ function placeBet(){
     let amount = document.getElementById("betAmount").value;
     betAmount = parseInt(amount);
 
+    //enter the bet amount of money
     if (isNaN(betAmount) || betAmount <= 0 || betAmount > balance){
         alert("Please enter a valid bet amount.");
         canBet = true;
@@ -68,7 +72,8 @@ function placeBet(){
     startRound();
 }
 
-function makeDeck() {
+//define the card deck
+ function makeDeck() {
     let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     let types = ["C", "D", "H", "S"];
     deck = [];
@@ -80,6 +85,7 @@ function makeDeck() {
     }
 }
 
+//shuffle the card deck
 function shuffleDeck() {
     for (let i = 0; i < deck.length; i++) {
         let j = Math.floor(Math.random() * deck.length);
@@ -90,7 +96,7 @@ function shuffleDeck() {
     console.log(deck);
 }
 
-//the function to start the g
+//the function to start the game 
 function startRound() {
     // Show first face down card
     let hiddenCard = document.getElementById("hidden");
@@ -111,8 +117,9 @@ function startRound() {
         document.getElementById("dealer-cards").append(displayCard);
     console.log(dealerSum);
 
+    //create two random image of the cards
     for (let i = 0; i < 2; i++) {
-        let displayCard = document.createElement("img");
+        let displayCard = document.createElement("img");  //display the cards' images on the screen
         let card = deck.pop();
         displayCard.src = "./cards/" + card + ".png";
         yourSum += getValue(card);
@@ -122,11 +129,11 @@ function startRound() {
     }
     console.log(yourSum);
     if (yourSum == 21){
-        canHit = false;
+        canHit = false; //if the player's score = 21, the player cannot hit or stand, and that person wins 3.5 times of the money he/she paid for
         document.getElementById("hidden").src = "./cards/" + hidden + ".png";
         let message = ""
-        balance += betAmount * 2.5;
-        message = "Blackjack!\nBig winner 💰\nYou made: $" + betAmount * 2.5;
+        balance += betAmount * 3.5;
+        message = "Blackjack!\nBig winner 💰\nYou made: $" + betAmount * 3.5;
         document.getElementById("dealer-sum").innerText = dealerSum;
         document.getElementById("your-sum").innerText = yourSum;
         document.getElementById("results").innerText = message;
